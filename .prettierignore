@@ -1,0 +1,36 @@
+# next.js build output
+.next
+
+# dependencies
+/node_modules
+
+
+# testing
+/coverage
+
+# production server output
+out
+
+**/*.png
+**/*.jpg
+**/*.mp4
+**/*.md
+**/*.xml
+**/*.yml
+**/*.pem
+**/*.conf
+**/*.txt
+.editorconfig
+.eslintignore
+.gitignore
+.prettierignore
+# misc
+**/*.DS_Store
+**/*.env.local
+**/*.env.development.local
+**/*.env.test.local
+**/*.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
