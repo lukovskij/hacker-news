@@ -1,10 +1,14 @@
 import React from 'react'
-import { Typography } from '@material-ui/core'
+import { BrowserRouter as Router } from 'react-router-dom'
+import BaseLayout from '../BaseLayout'
+import Routes from '../Routes'
 
 export default function Root() {
   return (
-    <div>
-      <Typography variant='h1'>Hello</Typography>
-    </div>
+    <Router>
+      <BaseLayout>
+        <Routes />
+      </BaseLayout>
+    </Router>
   )
 }
