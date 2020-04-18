@@ -3,7 +3,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
-import rootReducer, { ApplicationState } from './rootReducer'
+import rootReducer from './rootReducer'
 
 export function initializeStore(initialState: ApplicationState): ReturnType<typeof createStore> {
   return createStore(

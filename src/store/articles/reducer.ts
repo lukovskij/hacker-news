@@ -1,12 +1,27 @@
-const initialState = null
+import { ArticleState, Actions, ActionTypes } from './types'
 
-const articles = (state: any = initialState, action: any) => {
+const initialState: ArticleState = {
+  articles: null,
+  count: null
+}
+
+const articlesState = (state: ArticleState = initialState, action: Actions) => {
   switch (action.type) {
-    case 'SET_VISIBILITY_FILTER':
-      return action.filter
+    case ActionTypes.SAVE_ARTICLES: {
+      return {
+        ...state,
+        articles: action.payload.articles
+      }
+    }
+    case ActionTypes.SET_ARTICLES_COUNT: {
+      return {
+        ...state,
+        count: action.payload.count
+      }
+    }
     default:
       return state
   }
 }
 
-export default articles
+export default articlesState
