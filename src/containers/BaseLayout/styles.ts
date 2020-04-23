@@ -20,7 +20,8 @@ export default makeStyles((theme: Theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
-    paddingTop: 64
+    padding: theme.spacing(2),
+    paddingTop: 64,
+    maxWidth: `calc(100% - ${drawerWidth}px)`
   }
 }))

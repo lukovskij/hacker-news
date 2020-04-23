@@ -1,6 +1,6 @@
 import { ArticleState, Actions, ActionTypes } from './types'
 
-const initialState: ArticleState = {
+export const initialState: ArticleState = {
   articles: null,
   count: null
 }

@@ -9,7 +9,8 @@ import PastPage from '../../pages/Past'
 import ShowPage from '../../pages/Show'
 import SubmitPage from '../../pages/Submit'
 import ThreadsPage from '../../pages/Threads'
-import CommentsPage from '../../pages/Commets'
+import CommentsPage from '../../pages/Comments'
+import UserPage from '../../pages/User'
 
 function Routes() {
   return (
@@ -23,6 +24,7 @@ function Routes() {
       <Route exact path={ROUTES.SHOW} component={ShowPage} />
       <Route exact path={ROUTES.SUBMIT} component={SubmitPage} />
       <Route exact path={ROUTES.THREADS} component={ThreadsPage} />
+      <Route exact path={`${ROUTES.USER}/:id`} component={UserPage} />
     </Switch>
   )
 }

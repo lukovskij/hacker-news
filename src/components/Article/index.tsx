@@ -6,6 +6,7 @@ import CardActions from '@material-ui/core/CardActions'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import Link from '@material-ui/core/Link'
+import { Link as RouterLink } from 'react-router-dom'
 
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import { OpenInBrowser } from '@material-ui/icons'
@@ -14,6 +15,7 @@ import Avatar from '../Avatar'
 
 import useStyles from './styles'
 import { Article } from '../../store/articles/types'
+import ROUTES from '../../config/routes'
 
 type Props = {
   article: Article
@@ -27,6 +29,20 @@ export default function RecipeReviewCard(props: Props) {
     <Card className={classes.root}>
       <CardHeader avatar={<Avatar title={article.title} />} title={article.title} subheader={date.toUTCString()} />
       <CardContent className={classes.content}>
+        <div>
+          <Typography component='span' color='textSecondary'>
+            type:
+          </Typography>{' '}
+          {article.type} |{' '}
+          <Typography component='span' color='textSecondary'>
+            score:
+          </Typography>{' '}
+          {article.score} |{' '}
+          <Typography component='span' color='textSecondary'>
+            by:{' '}
+          </Typography>
+          <RouterLink to={`${ROUTES.USER}/${article.by}`}>{article.by}</RouterLink>
+        </div>
         <Typography variant='body1' color='textPrimary' component='p'>
           {article.text || 'text not found 😭'}
         </Typography>

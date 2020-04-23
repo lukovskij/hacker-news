@@ -1,22 +1,28 @@
 import { combineReducers } from 'redux'
-import articlesState from './articles/reducer'
+import articlesState, { initialState as initialArticleState } from './articles/reducer'
 import { ArticleState } from './articles/types'
+import { UserState } from './user/types'
+import userState, { initialState as initialUserState } from './user/reducer'
 
 declare global {
   interface ApplicationState {
     articlesState: ArticleState
+    userState: UserState
   }
 }
 
 export const initialState: ApplicationState = {
   articlesState: {
-    articles: null,
-    count: null
+    ...initialArticleState
+  },
+  userState: {
+    ...initialUserState
   }
 }
 
 const rootReducer = combineReducers({
-  articlesState
+  articlesState,
+  userState
 })
 
 export default rootReducer
