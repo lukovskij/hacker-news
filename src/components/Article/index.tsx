@@ -10,7 +10,6 @@ import { Link as RouterLink } from 'react-router-dom'
 
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import { OpenInBrowser } from '@material-ui/icons'
-import ShareIcon from '@material-ui/icons/Share'
 import Avatar from '../Avatar'
 
 import useStyles from './styles'
@@ -18,6 +17,7 @@ import { Article } from '../../store/articles/types'
 import ROUTES from '../../config/routes'
 import { useDispatch } from 'react-redux'
 import { casheArticlesThunk } from '../../store/user/thunks'
+import ShareButton from '../ShareButton'
 
 type Props = {
   article: Article
@@ -46,7 +46,7 @@ export default function RecipeReviewCard(props: Props) {
           </Typography>
           <RouterLink to={`${ROUTES.USER}/${article.by}`}>{article.by}</RouterLink>
         </div>
-        <Typography variant='body1' color='textPrimary' component='p'>
+        <Typography variant='body1' color='textPrimary' component='p' style={{ wordBreak: 'break-word' }}>
           {article.text || 'text not found 😭'}
         </Typography>
         <Typography variant='body2' color='secondary'>
@@ -70,9 +70,7 @@ export default function RecipeReviewCard(props: Props) {
         >
           <FavoriteIcon />
         </IconButton>
-        <IconButton aria-label='share'>
-          <ShareIcon />
-        </IconButton>
+        <ShareButton url={article.url} />
         {urlPreview && (
           <IconButton
             className={classes.openBrowserButton}
