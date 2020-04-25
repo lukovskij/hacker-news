@@ -26,6 +26,9 @@ export default makeStyles((theme: Theme) =>
     },
     openBrowserButton: {
       marginLeft: 'auto'
+    },
+    isSaved: {
+      color: 'red'
     }
   })
 )

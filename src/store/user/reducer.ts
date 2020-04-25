@@ -2,7 +2,8 @@ import { UserState, Actions, ActionTypes } from './types'
 
 export const initialState: UserState = {
   user: null,
-  userArticles: null
+  userArticles: null,
+  savedArticles: null
 }
 
 const userState = (state: UserState = initialState, action: Actions) => {
@@ -22,6 +23,12 @@ const userState = (state: UserState = initialState, action: Actions) => {
       return {
         ...state,
         userArticles: action.payload.articles
+      }
+    }
+    case ActionTypes.CAHSE_ARTICLES: {
+      return {
+        ...state,
+        savedArticles: action.payload.articles
       }
     }
     default:

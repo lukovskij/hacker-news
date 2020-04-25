@@ -15,6 +15,7 @@ export type Article = {
   type: string
   url: string
   text?: string
+  isSaved?: boolean
 }
 
 export type Articles = {

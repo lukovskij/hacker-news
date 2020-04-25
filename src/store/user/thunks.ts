@@ -1,9 +1,9 @@
 import { ThunkAction } from 'redux-thunk'
-import { Actions, User } from './types'
-import { getUserSelector } from './selectors'
+import { Actions, User, CASHED_ARTICLES } from './types'
+import { getUserSelector, getSavedArticlesSelector } from './selectors'
 import { fetchArticle, fetchUser } from '../../config/api'
 import { Article } from '../articles/types'
-import { saveUserArticles, saveUser } from './actions'
+import { saveUserArticles, saveUser, casheArticle } from './actions'
 
 export const saveUserThunk = (userId: string): ThunkAction<void, ApplicationState, unknown, Actions> => async (
   dispatch
@@ -31,5 +31,32 @@ export const saveUserArticlesThunk = (): ThunkAction<void, ApplicationState, unk
       articles.push(it.data)
     })
     dispatch(saveUserArticles(articles))
+  }
+}
+
+const saveArticle = (articles: Array<Article>): ThunkAction<void, any, unknown, Actions> => (dispatch) => {
+  window.localStorage.setItem(CASHED_ARTICLES, JSON.stringify(articles))
+  dispatch(casheArticle(articles))
+}
+
+export const casheArticlesThunk = (art: Article): ThunkAction<void, ApplicationState, unknown, Actions> => (
+  dispatch,
+  getState
+) => {
+  try {
+    const cashedArticles = getSavedArticlesSelector(getState())
+    const article = { ...art, isSaved: true }
+
+    if (cashedArticles && cashedArticles.find((it) => it.id === article.id)) {
+      const articles = cashedArticles.filter((it) => it.id !== article.id)
+      dispatch(saveArticle(articles))
+    } else if (cashedArticles) {
+      const concatAticles = [...cashedArticles, article]
+      dispatch(saveArticle(concatAticles))
+    } else if (!cashedArticles) {
+      dispatch(saveArticle([article]))
+    }
+  } catch (err) {
+    console.log(err)
   }
 }

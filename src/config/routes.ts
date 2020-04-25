@@ -5,7 +5,8 @@ const ROUTES = {
   SHOW: '/show',
   TOP: '/top',
   BEST: '/best',
-  USER: '/user'
+  USER: '/user',
+  SAVED_ARTICLES: '/saved-articles'
 }
 
 export default ROUTES

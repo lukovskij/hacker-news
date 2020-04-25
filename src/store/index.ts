@@ -16,6 +16,7 @@ export function initializeStore(initialState: ApplicationState): ReturnType<type
 declare global {
   interface Window {
     __NEXT_REDUX_STORE__: any
+    indexedDB: any
   }
 
   // web Share API

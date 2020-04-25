@@ -16,6 +16,8 @@ import Avatar from '../Avatar'
 import useStyles from './styles'
 import { Article } from '../../store/articles/types'
 import ROUTES from '../../config/routes'
+import { useDispatch } from 'react-redux'
+import { casheArticlesThunk } from '../../store/user/thunks'
 
 type Props = {
   article: Article
@@ -23,6 +25,7 @@ type Props = {
 export default function RecipeReviewCard(props: Props) {
   const { article } = props
   const classes = useStyles()
+  const dispatch = useDispatch()
   const date = new Date(article.time * 1000)
   const urlPreview = (article.url && new URL(article.url)) || null
   return (
@@ -58,7 +61,13 @@ export default function RecipeReviewCard(props: Props) {
         </Typography>
       </CardContent>
       <CardActions className={classes.actions} disableSpacing>
-        <IconButton aria-label='add to favorites'>
+        <IconButton
+          color={article?.isSaved ? 'primary' : 'secondary'}
+          onClick={() => {
+            dispatch(casheArticlesThunk(article))
+          }}
+          aria-label='add to favorites'
+        >
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label='share'>

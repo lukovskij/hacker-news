@@ -33,7 +33,7 @@ export const saveArticlesThunk = (count: number, type: keyof typeof API_ROOT_ROU
   responce.forEach((it: { data: Article }) => {
     articles.push(it.data)
   })
-  if (stateArticles !== null) {
+  if (stateArticles) {
     dispatch(saveArticles(stateArticles.concat(articles)))
   } else {
     dispatch(saveArticles(articles))

@@ -31,6 +31,11 @@ export default function links() {
       id: 11,
       url: ROUTES.SHOW,
       title: 'Show'
+    },
+    {
+      id: 15,
+      url: ROUTES.SAVED_ARTICLES,
+      title: 'Saved Articles'
     }
   ]
 }

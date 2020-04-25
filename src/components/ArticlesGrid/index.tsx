@@ -5,7 +5,7 @@ import Loader from '../Loader'
 import Article from '../Article'
 
 type Props = {
-  articles: Array<ArticleType> | null
+  articles: Array<ArticleType> | null | undefined
 }
 export default function ArticlesGrid(props: Props) {
   const { articles } = props

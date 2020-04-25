@@ -8,6 +8,7 @@ import BestPage from '../../pages/BestStories'
 import ShowPage from '../../pages/Show'
 import TopPage from '../../pages/Top'
 import UserPage from '../../pages/User'
+import SavedArticlesPage from '../../pages/SavedArticles'
 
 function Routes() {
   return (
@@ -18,6 +19,7 @@ function Routes() {
       <Route exact path={ROUTES.BEST} component={BestPage} />
       <Route exact path={ROUTES.SHOW} component={ShowPage} />
       <Route exact path={ROUTES.TOP} component={TopPage} />
+      <Route exact path={ROUTES.SAVED_ARTICLES} component={SavedArticlesPage} />
       <Route exact path={`${ROUTES.USER}/:id`} component={UserPage} />
     </Switch>
   )
