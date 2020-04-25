@@ -8,29 +8,19 @@ export default function links() {
       title: 'Home'
     },
     {
-      id: 5,
-      url: ROUTES.NEWS,
-      title: 'News'
-    },
-    {
-      id: 6,
-      url: ROUTES.PAST,
-      title: 'Past'
+      id: 14,
+      url: ROUTES.BEST,
+      title: 'Best'
     },
     {
       id: 13,
-      url: ROUTES.THREADS,
-      title: 'Threads'
+      url: ROUTES.TOP,
+      title: 'Top'
     },
     {
       id: 2,
       url: ROUTES.ASK,
       title: 'Ask'
-    },
-    {
-      id: 3,
-      url: ROUTES.COMMENTS,
-      title: 'Comments'
     },
     {
       id: 4,
@@ -41,11 +31,6 @@ export default function links() {
       id: 11,
       url: ROUTES.SHOW,
       title: 'Show'
-    },
-    {
-      id: 12,
-      url: ROUTES.SUBMIT,
-      title: 'Submit'
     }
   ]
 }

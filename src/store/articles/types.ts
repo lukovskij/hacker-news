@@ -1,6 +1,7 @@
 export enum ActionTypes {
   SAVE_ARTICLES = 'articles/SAVE_ARTICLES',
-  SET_ARTICLES_COUNT = 'articles/SET_ARTICLES_COUNT'
+  SET_ARTICLES_COUNT = 'articles/SET_ARTICLES_COUNT',
+  CLEAR_ARTICLES = 'articles/CLEAR_ARTICLES'
 }
 
 export type Article = {
@@ -26,6 +27,11 @@ export interface SaveArticlesAction {
     articles: Array<Article>
   }
 }
+
+export interface ClearArticlesAction {
+  type: ActionTypes.CLEAR_ARTICLES
+}
+
 export interface SetArticlesCountAction {
   type: ActionTypes.SET_ARTICLES_COUNT
   payload: {
@@ -33,7 +39,7 @@ export interface SetArticlesCountAction {
   }
 }
 
-export type Actions = SaveArticlesAction | SetArticlesCountAction
+export type Actions = SaveArticlesAction | SetArticlesCountAction | ClearArticlesAction
 
 export interface ArticleState {
   readonly articles: Array<Article> | null

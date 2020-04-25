@@ -4,16 +4,16 @@ import Typography from '@material-ui/core/Typography'
 import useLoadArticlesByMount from '../../hooks/useLoadArticlesByMount'
 import ArticlesGrid from '../../components/ArticlesGrid'
 
-function JobsPage() {
-  const articles = useLoadArticlesByMount('jobstories')
+function TopPage() {
+  const articles = useLoadArticlesByMount('topstories')
   return (
     <>
       <Typography variant='h1' component='h1'>
-        Jobs
+        Top stories
       </Typography>
       <ArticlesGrid articles={articles} />
     </>
   )
 }
 
-export default JobsPage
+export default TopPage

@@ -1,13 +1,10 @@
 const ROUTES = {
   HOME: '/',
   ASK: '/ask',
-  COMMENTS: '/comments',
   JOBS: '/jobs',
-  NEWS: '/news',
-  PAST: '/past',
   SHOW: '/show',
-  SUBMIT: '/submit',
-  THREADS: '/threads',
+  TOP: '/top',
+  BEST: '/best',
   USER: '/user'
 }
 

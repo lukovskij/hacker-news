@@ -2,7 +2,8 @@ import { Article } from '../articles/types'
 
 export enum ActionTypes {
   SAVE_USER = 'articles/SAVE_USER',
-  SAVE_USER_ARTICLES = 'articles/SAVE_USER_ARTICLES'
+  SAVE_USER_ARTICLES = 'articles/SAVE_USER_ARTICLES',
+  CLEAR_USER = 'articles/CLEAR_USER'
 }
 
 export type User = {
@@ -21,14 +22,18 @@ export interface SaveUserAction {
   }
 }
 
-export interface SaveUserArticles {
+export interface SaveUserArticlesAction {
   type: ActionTypes.SAVE_USER_ARTICLES
   payload: {
     articles: Array<Article>
   }
 }
 
-export type Actions = SaveUserAction | SaveUserArticles
+export interface ClearUserAction {
+  type: ActionTypes.CLEAR_USER
+}
+
+export type Actions = SaveUserAction | SaveUserArticlesAction | ClearUserAction
 
 export interface UserState {
   readonly user: User | null

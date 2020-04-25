@@ -1,34 +1,17 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
-import { useDispatch, useSelector } from 'react-redux'
-import { saveArticlesThunk } from '../../store/articles/thunks'
-import { getArticlesSelector } from '../../store/articles/selectors'
-import { Typography, Grid } from '@material-ui/core'
-import Article from '../../components/Article'
-import Loader from '../../components/Loader'
+import Typography from '@material-ui/core/Typography'
+import useLoadArticlesByMount from '../../hooks/useLoadArticlesByMount'
+import ArticlesGrid from '../../components/ArticlesGrid'
 
 function HomePage() {
-  const dispatch = useDispatch()
-  const articles = useSelector(getArticlesSelector)
-  useEffect(() => {
-    dispatch(saveArticlesThunk(10))
-  }, [])
+  const articles = useLoadArticlesByMount('newstories')
   return (
     <>
       <Typography variant='h1' component='h1'>
         Home
       </Typography>
-      <Grid alignItems='stretch' container spacing={2}>
-        {articles ? (
-          articles.map((it) => (
-            <Grid key={it.id} item xs={12}>
-              <Article article={it} />
-            </Grid>
-          ))
-        ) : (
-          <Loader />
-        )}
-      </Grid>
+      <ArticlesGrid articles={articles} />
     </>
   )
 }

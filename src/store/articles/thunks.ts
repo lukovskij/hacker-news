@@ -1,7 +1,7 @@
 import { saveArticles, setArticleCount } from './actions'
 import { ThunkAction } from 'redux-thunk'
-import { Actions, Articles, Article } from './types'
-import { fetchRootUrlsData, fetchArticle } from '../../config/api'
+import { Actions, Article } from './types'
+import { fetchRootUrlsData, fetchArticle, API_ROOT_ROUTES } from '../../config/api'
 import { getArticlesCountSelector, getArticlesSelector } from './selectors'
 
 type Thunk = ThunkAction<void, ApplicationState, unknown, Actions>
@@ -12,9 +12,12 @@ export const setArticleCountThunk = (count: number): Thunk => (dispatch, getStat
   dispatch(setArticleCount(newArticleCount))
 }
 
-export const saveArticlesThunk = (count: number): Thunk => async (dispatch, getState) => {
+export const saveArticlesThunk = (count: number, type: keyof typeof API_ROOT_ROUTES): Thunk => async (
+  dispatch,
+  getState
+) => {
   const stateArticles = getArticlesSelector(getState())
-  const { data: ids } = await fetchRootUrlsData<Array<number>>('newstories')
+  const { data: ids } = await fetchRootUrlsData<Array<number>>(type)
   let i = 0
   const articlePromisses: Array<any> | null = []
   const articles: Array<Article> = []

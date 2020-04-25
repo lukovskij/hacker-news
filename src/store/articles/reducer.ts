@@ -13,6 +13,13 @@ const articlesState = (state: ArticleState = initialState, action: Actions) => {
         articles: action.payload.articles
       }
     }
+
+    case ActionTypes.CLEAR_ARTICLES: {
+      return {
+        ...initialState
+      }
+    }
+
     case ActionTypes.SET_ARTICLES_COUNT: {
       return {
         ...state,

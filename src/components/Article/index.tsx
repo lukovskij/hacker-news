@@ -27,7 +27,7 @@ export default function RecipeReviewCard(props: Props) {
   const urlPreview = (article.url && new URL(article.url)) || null
   return (
     <Card className={classes.root}>
-      <CardHeader avatar={<Avatar title={article.title} />} title={article.title} subheader={date.toUTCString()} />
+      <CardHeader avatar={<Avatar title={article.by} />} title={article.title} subheader={date.toUTCString()} />
       <CardContent className={classes.content}>
         <div>
           <Typography component='span' color='textSecondary'>
@@ -65,7 +65,11 @@ export default function RecipeReviewCard(props: Props) {
           <ShareIcon />
         </IconButton>
         {urlPreview && (
-          <IconButton className={classes.openBrowserButton} aria-label='open article'>
+          <IconButton
+            className={classes.openBrowserButton}
+            aria-label='open article'
+            onClick={() => window.open(article.url, '_blank')}
+          >
             <OpenInBrowser />
           </IconButton>
         )}

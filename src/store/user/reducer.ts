@@ -7,6 +7,11 @@ export const initialState: UserState = {
 
 const userState = (state: UserState = initialState, action: Actions) => {
   switch (action.type) {
+    case ActionTypes.CLEAR_USER: {
+      return {
+        ...initialState
+      }
+    }
     case ActionTypes.SAVE_USER: {
       return {
         ...state,

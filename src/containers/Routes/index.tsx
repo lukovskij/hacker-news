@@ -4,12 +4,9 @@ import ROUTES from '../../config/routes'
 import HomePage from '../../pages/Home'
 import AskPage from '../../pages/Ask'
 import JobsPage from '../../pages/Jobs'
-import NewsPage from '../../pages/News'
-import PastPage from '../../pages/Past'
+import BestPage from '../../pages/BestStories'
 import ShowPage from '../../pages/Show'
-import SubmitPage from '../../pages/Submit'
-import ThreadsPage from '../../pages/Threads'
-import CommentsPage from '../../pages/Comments'
+import TopPage from '../../pages/Top'
 import UserPage from '../../pages/User'
 
 function Routes() {
@@ -17,13 +14,10 @@ function Routes() {
     <Switch>
       <Route exact path={ROUTES.HOME} component={HomePage} />
       <Route exact path={ROUTES.ASK} component={AskPage} />
-      <Route exact path={ROUTES.COMMENTS} component={CommentsPage} />
       <Route exact path={ROUTES.JOBS} component={JobsPage} />
-      <Route exact path={ROUTES.NEWS} component={NewsPage} />
-      <Route exact path={ROUTES.PAST} component={PastPage} />
+      <Route exact path={ROUTES.BEST} component={BestPage} />
       <Route exact path={ROUTES.SHOW} component={ShowPage} />
-      <Route exact path={ROUTES.SUBMIT} component={SubmitPage} />
-      <Route exact path={ROUTES.THREADS} component={ThreadsPage} />
+      <Route exact path={ROUTES.TOP} component={TopPage} />
       <Route exact path={`${ROUTES.USER}/:id`} component={UserPage} />
     </Switch>
   )

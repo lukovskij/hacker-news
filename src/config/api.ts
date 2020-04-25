@@ -17,3 +17,6 @@ export const fetchRootUrlsData = <ServerData>(route: keyof typeof API_ROOT_ROUTE
 
 export const fetchArticle = <ServerData>(articleCode: number) =>
   axios.get<ServerData>(`${API_URL}item/${articleCode}.json?print=pretty`).then((response) => response)
+
+export const fetchUser = <ServerData>(userId: string) =>
+  axios.get<ServerData>(`${API_URL}user/${userId}.json?print=pretty`).then((response) => response)
